@@ -166,19 +166,19 @@ class Household(object):
         Returns:
             TYPE: Description
         """
-        print "\nSelected household %d has the following characteristics:" % self.unit_id
-        print "Plan: %s/%s (Mbps down/up), %s (%s), %s" % (
+        print("\nSelected household %d has the following characteristics:" % self.unit_id)
+        print("Plan: %s/%s (Mbps down/up), %s (%s), %s" % (
             self.advertised_rate_down, self.advertised_rate_up,
-            self.isp, self.technology, self.state)
-        print "Estimated price per month: $%s" % self.monthly_charge
-        print "--------------------------------------------------------"
-        print " Upload rate (kbps)    | %d                             " % self.rate_up_kbps
-        print " Download rate (kbps)  | %d                             " % self.rate_down_kbps
-        print " Round-trip delay (ms) | %f                             " % self.latency_ms
-        print " Uplink jitter (ms)    | %f                             " % self.jitter_up_ms
-        print " Downlink jitter (ms)  | %f                             " % self.jitter_down_ms
-        print " Packet loss (%%)       | %f                             " % self.loss
-        print "--------------------------------------------------------"
+            self.isp, self.technology, self.state))
+        print ("Estimated price per month: $%s" % self.monthly_charge)
+        print("--------------------------------------------------------")
+        print(" Upload rate (kbps)    | %d                             " % self.rate_up_kbps)
+        print(" Download rate (kbps)  | %d                             " % self.rate_down_kbps)
+        print(" Round-trip delay (ms) | %f                             " % self.latency_ms)
+        print(" Uplink jitter (ms)    | %f                             " % self.jitter_up_ms)
+        print(" Downlink jitter (ms)  | %f                             " % self.jitter_down_ms)
+        print(" Packet loss (%%)       | %f                             " % self.loss)
+        print("--------------------------------------------------------")
 
 
 class Star(object):

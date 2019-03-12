@@ -75,8 +75,8 @@ if args.houseid:
 if housearray.empty:
     # Get a random sample to suggest house id's to try
     sample_ids = allcsv.sample(n=5)['unit_id'].tolist()
-    print "\nThere is no unit with that ID in the data set."
-    print "Here are some valid IDs you can try: %s\n" % ", ".join(map(str, sample_ids))
+    print("\nThere is no unit with that ID in the data set.")
+    print("Here are some valid IDs you can try: %s\n" % ", ".join(map(str, sample_ids)))
     sys.exit()
 
 if args.rspec:
@@ -92,15 +92,15 @@ for rowindex, house in housearray.iterrows():
         star.add_household(h)
 
     if args.netemup:
-        print h.netem_template_up("eth0")
+        print(h.netem_template_up("eth0"))
     if args.netemdown:
-        print h.netem_template_down("eth0")
+        print(h.netem_template_down("eth0"))
 
     if args.json:
         jfile = os.path.join(output_dir, "house-%d.json" % h.unit_id)
         with open(jfile, 'w') as f:
             json.dump(h.json_template(), f)
-            print "JSON for Augmented Traffic Control written to %s" % jfile
+            print("JSON for Augmented Traffic Control written to %s" % jfile)
 
     if args.validate:
         tfile = os.path.join(output_dir, "truth-%d.csv" % h.unit_id)
@@ -108,7 +108,7 @@ for rowindex, house in housearray.iterrows():
         with open(tfile, "w") as f:
             writer = csv.writer(f)
             writer.writerows(a)
-            print "CSV of household link stats written to %s" % tfile
+            print("CSV of household link stats written to %s" % tfile)
 
     if args.validate and args.rspec:
         star.add_validate_services()
@@ -116,5 +116,5 @@ for rowindex, house in housearray.iterrows():
 if args.rspec:
     rspec = os.path.join(output_dir, "houses.xml")
     star.rspec_write(rspec)
-    print "Rspec written to %s\n" % rspec
+    print("Rspec written to %s\n" % rspec)
 
