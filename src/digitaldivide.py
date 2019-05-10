@@ -4,9 +4,9 @@ import pandas as pd
 
 class HouseholdSet(object):
 
-    def __init__(self, path):
+    def __init__(self, data):
 
-        self.data = pd.read_csv(path)
+        self.data = data
 
     def sample(self):
 
@@ -277,6 +277,7 @@ class Star(object):
             house.addService(PG.Execute(shell="/bin/sh", command="%s | bash" % iperf_setup))
             house.addService(PG.Execute(shell="/bin/sh", command=wget_consolidate))
             house.addService(PG.Execute(shell="/bin/sh", command=wget_validate))
+
 
     def rspec_template(self, rspec):
 
